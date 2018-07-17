@@ -11,3 +11,7 @@ create-react-app "your_app_name"
 cd "your_app_name"
 yarn start
 ```
+
+- transpiler
+  Balel transpiles jsx
+  [Babel](https://babeljs.io/repl/)
