@@ -1,7 +1,13 @@
 # react_learning
 
-How to run server
+- To do first
 ```
-cd "folder_name"
+npm install -g creat-react-app
+create-react-app "your_app_name"
+```
+
+- How to run server
+```
+cd "your_app_name"
 yarn start
 ```
