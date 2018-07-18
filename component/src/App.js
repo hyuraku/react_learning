@@ -14,7 +14,7 @@ const Cat = () =>{
 }
 
 const Dog = () =>{
-  return <div>woof</div>
+  return <div>Woof</div>
 }
 
 export default App;
