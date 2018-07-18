@@ -3,17 +3,17 @@ import React from 'react';
 const App = () => {
   return(
     <div>
-      <cat/>
-      <dog/>
+      <Cat/>
+      <Dog/>
     </div>
   )
 }
 
-const cat = () =>{
+const Cat = () =>{
   return <div>Meow</div>
 }
 
-const dog = () =>{
+const Dog = () =>{
   return <div>woof</div>
 }
 
