@@ -12,9 +12,8 @@ cd "your_app_name"
 yarn start
 ```
 
-- transpiler
-  Balel transpiles jsx
-  [Babel](https://babeljs.io/repl/)
+- transpiler  
+  [Babel](https://babeljs.io/repl/) transpiles jsx
 
 - webpack
   - module bundler: It bundles the source code and outputs a static javascript file that can be run in the browser.
