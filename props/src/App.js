@@ -13,6 +13,8 @@ const App = () =>{
     {name:"Jeph"}
   ]
   return (
+    // if you didn't write "index" and "key={index}", error happens.
+    // Vurtual dom mamaged which part is changed, so you should give unique key.
     <div>
     {
       profiles.map((profile,index) => {
