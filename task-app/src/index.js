@@ -13,7 +13,7 @@ import EventsIndex from './components/event_index';
 import EventsNew from './components/event_new';
 import registerServiceWorker from './registerServiceWorker';
 
-const enhancer = process.env.NODE_ENV === "development" ? composeWithDevTools(applyMiddleware(thunk)):applyMiddleware(thunk)
+const enhancer = process.env.NODE_ENV === 'development' ? composeWithDevTools(applyMiddleware(thunk)):applyMiddleware(thunk)
 
 const store = createStore(reducer,enhancer);
 
