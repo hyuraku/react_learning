@@ -11,6 +11,7 @@ import './index.css';
 import reducer from './reducers'
 import EventsIndex from './components/event_index';
 import EventsNew from './components/event_new';
+import EventsShow from './components/event_show';
 import registerServiceWorker from './registerServiceWorker';
 
 const enhancer = process.env.NODE_ENV === 'development' ? composeWithDevTools(applyMiddleware(thunk)):applyMiddleware(thunk)
@@ -21,7 +22,9 @@ ReactDOM.render(
   <Provider store={store}>
   <BrowserRouter>
     <Switch>
-      <Route exact path='/events/new' component={EventsNew}/ >
+      <Route path='/events/new' component={EventsNew}/ >
+      <Route path='/events/:id' component={EventsShow}/ >
+      <Route exact path='/events' component={EventsIndex}/ >
       <Route exact path='/' component={EventsIndex}/>
     </Switch>
   </BrowserRouter>
