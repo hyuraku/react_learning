@@ -6,7 +6,11 @@ function Welcome(props){
 }
 
 const element = (
+  <div>
     <Welcome name="Tom"/>
+    <Welcome name="David"/>
+    <Welcome name="John"/>
+  </div>
 );
 
 function App() {
