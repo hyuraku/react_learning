@@ -1,46 +1,74 @@
 import React from 'react';
 import './App.css';
 
-function FormattedDate(props){
-  return <h2>It is {props.date.toLocaleTimeString()}</h2>
-}
-
-class Clock extends React.Component{
+class LoginControl extends React.Component{
   constructor(props){
-    super(props);
-    this.state = {date: new Date()}
+    super(props)
+    this.state = {isLoggedIn: false}
+    this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+  }
+  handleLoginClick() {
+    this.setState({isLoggedIn: true});
   }
 
-  componentDidMount(){
-    this.timerID = setInterval(()=> this.tick(),1000)
+  handleLogoutClick() {
+    this.setState({isLoggedIn: false});
   }
-
-  componentWillUnmount(){
-    clearInterval(this.timerID);
-  }
-
-  tick(){
-    this.setState({
-      date: new Date()
-    })
-  }
-  // never write below
-  // this.state.date = new Date()
 
   render(){
+    const isLoggedIn = this.state.isLoggedIn
+    let button;
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={this.handleLogoutClick} />;
+    } else {
+      button = <LoginButton onClick={this.handleLoginClick} />;
+    }
     return(
       <div>
-        <h1>Hello World</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}</h2>
-        <FormattedDate date={this.state.date}/>
+<Greeting isLoggedIn={isLoggedIn} />
+        {button}
       </div>
     )
   }
 }
 
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting />;
+  }
+  return <GuestGreeting />;
+}
+
+
+function UserGreeting(props) {
+  return <h1>Welcome back!</h1>;
+}
+
+function GuestGreeting(props) {
+  return <h1>Please sign up.</h1>;
+}
+
+function LoginButton(props) {
+  return (
+    <button onClick={props.onClick}>
+      Login
+    </button>
+  );
+}
+
+function LogoutButton(props) {
+  return (
+    <button onClick={props.onClick}>
+      Logout
+    </button>
+  );
+}
+
 function App() {
   return (
-    <Clock />
+    <LoginControl />
   );
 }
 
