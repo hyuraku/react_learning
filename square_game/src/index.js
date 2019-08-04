@@ -2,23 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Square extends React.Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      value: null,
-    }
-  }
-  render() {
-    return (
-      <button
-        className="square"
-        onClick={()=> this.props.onClick()}
-      >
-        {this.props.value}
-      </button>
-    );
-  }
+// if Component has no state , use function component
+function Square(props){
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  )
 }
 
 class Board extends React.Component {
@@ -27,10 +17,10 @@ class Board extends React.Component {
     this.state = {
       squares: Array(9).fill(null),
     };
-  }
+  }// Board manages game state, but square does not it
 
   handleclick(i){
-    const squares = this.state.squares.slice();
+    const squares = this.state.squares.slice(); // slice: shallow copy, Immutability is important
     squares[i] = 'X'
     this.setState({squares: squares})
   }
@@ -39,7 +29,7 @@ class Board extends React.Component {
     return <Square
       value={this.state.squares[i]}
       onClick={()=> this.handleclick(i)}
-    />;
+    />;// Board gives two values, value and onClick, Suqare component
   }
 
   render() {
