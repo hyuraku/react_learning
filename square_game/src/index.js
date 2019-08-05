@@ -12,13 +12,13 @@ function Square(props){
 }
 
 class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      squares: Array(9).fill(null),
-      xIsNext: true
-    };
-  }// Board manages game state, but square does not it
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     squares: Array(9).fill(null),
+  //     xIsNext: true
+  //   };
+  // }// Board manages game state, but square does not it
 
   handleclick(i){
     const squares = this.state.squares.slice(); // slice: shallow copy, Immutability is important
@@ -34,8 +34,8 @@ class Board extends React.Component {
   
   renderSquare(i) {
     return <Square
-      value={this.state.squares[i]}
-      onClick={()=> this.handleclick(i)}
+      value={this.props.squares[i]}
+      onClick={()=> this.props.onClick(i)}
     />;// Board gives two values, value and onClick, Suqare component
   }
 
@@ -73,6 +73,15 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [{
+        squares: Array(9).fill(null),
+      }],
+      xIsNext: true,
+    };
+  }
   render() {
     return (
       <div className="game">
