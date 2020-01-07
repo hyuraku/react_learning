@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
+import SeasonDisplay from './SeasonDisplay'
 
 const App = () =>{
-  return <div>Hi there!</div>
+  return <div><SeasonDisplay/></div>
 }
 
 ReactDOM.render(
