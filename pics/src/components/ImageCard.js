@@ -22,7 +22,7 @@ class ImageCard extends React.Component {
   }
 
   render() {
-    const {description, urls } = this.props.image
+    const { description, urls } = this.props.image
 
     return (
       <div className="oneImage" style={{gridRowEnd: `span ${this.state.spans}`}}>
